@@ -6,7 +6,7 @@
 
 Zentro AI is a multi-agent Business Operating System that transforms fragmented business data into intelligent decisions. Built for the Microsoft Agents League Reasoning Agents Challenge, it combines Executive Insights, Lead Intelligence, Revenue Risk Analysis, Meeting Intelligence, Knowledge Graphs, and Microsoft IQ-inspired reasoning into a unified intelligence platform.
 
-![Zentro AI Architecture](./public/architecture-diagram.png)
+![Zentro AI Architecture](./public/final_architecture_Diagram.png)
 
 ---
 
