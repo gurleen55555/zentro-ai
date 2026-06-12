@@ -1,0 +1,11 @@
+{
+  "name": "zentro-business-kb",
+  "description": "Ground the Zentro reasoning agent in governed operating policies and the Zentro Fabric IQ business ontology.",
+  "knowledgeSources": [
+    { "name": "zentro-policies" },
+    { "name": "zentro-fabric-iq-ontology" }
+  ],
+  "outputMode": "answerSynthesis",
+  "answerInstructions": "Answer only from retrieved evidence. Explain the business state, cite the sources used, and recommend a governed next action. Say when evidence is insufficient.",
+  "retrievalInstructions": "For business state, entities, metrics, and relationships, query the Zentro Fabric IQ ontology. For policies and playbooks, query the Zentro policies source. Combine both when recommending actions."
+}

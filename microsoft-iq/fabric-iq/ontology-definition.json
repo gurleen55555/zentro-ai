@@ -1,0 +1,30 @@
+{
+  "name": "ZentroBusinessOntology",
+  "description": "Shared business vocabulary for Zentro's revenue intelligence agent.",
+  "entities": [
+    { "name": "Customer", "key": "customerId", "properties": ["name", "industry", "monthlyRevenue", "healthScore", "status"] },
+    { "name": "Lead", "key": "leadId", "properties": ["name", "score", "status", "probabilityToClose"] },
+    { "name": "Meeting", "key": "meetingId", "properties": ["title", "sentiment", "riskLevel", "summary"] },
+    { "name": "RevenueRisk", "key": "riskId", "properties": ["severity", "impactMrr", "description", "status"] },
+    { "name": "Action", "key": "actionId", "properties": ["title", "owner", "dueAt", "status"] }
+  ],
+  "relationships": [
+    { "from": "Customer", "name": "hasRisk", "to": "RevenueRisk" },
+    { "from": "Customer", "name": "participatedIn", "to": "Meeting" },
+    { "from": "Lead", "name": "convertedTo", "to": "Customer" },
+    { "from": "RevenueRisk", "name": "requires", "to": "Action" },
+    { "from": "Meeting", "name": "creates", "to": "Action" }
+  ],
+  "businessRules": [
+    {
+      "name": "ExecutiveRevenueRiskEscalation",
+      "condition": "RevenueRisk.severity = 'high' OR RevenueRisk.impactMrr >= 25000",
+      "action": "Create an executive-owned recovery Action due within 48 hours"
+    },
+    {
+      "name": "HighIntentLeadRouting",
+      "condition": "Lead.score >= 80",
+      "action": "Route the Lead to senior sales coverage within 24 hours"
+    }
+  ]
+}
